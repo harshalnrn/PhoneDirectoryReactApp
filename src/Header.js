@@ -1,4 +1,4 @@
-import React/* ,{Component} */ from 'react';
+import React ,{Component} from 'react';
 import './Header.css' ;
 //components have to mandatorily return react element
 
@@ -9,23 +9,21 @@ import './Header.css' ;
     background: '#000',
     color: '#fff',
     textTransform: 'uppercase'
-  }; */
+  }; 
  const Header=function(){                                  //constant name should be same as that of component.js
 return(  
 <div className='header'>
 Phone Directory
  </div>
  )
-} 
+} */ 
 //now reference this functional component in App.js
+//below is the class component
+ class Header extends Component{
 
-// class Header extends Component{
+    render(){
 
-//     render(){
-
-//         return(
-//             <div className="header">Phone Directory</div>
-//         )
-//     }
-// }
+        return(
+            <div className="header">Phone Directory</div>         )
+     } }
 export default Header;
