@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));  //App.js is loaded in root element
+ReactDOM.render(<App />, document.getElementById('root'));  //App.js/App class is loaded within root element/DOM
 
 
 // If you want your app to work offline and load faster, you can change

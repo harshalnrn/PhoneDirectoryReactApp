@@ -9,14 +9,17 @@ class App extends Component{
     let subsriberArray=[
 
       {
+        id:1,
         name:'Harshal',
       phone:'494844494'
     },
       {
+        id:2,
         name:'Shilpa',
         phone:'6464646464'
       },
       {
+        id:3,
           name:'Varun',
         phone:'464989844'
       }
@@ -32,8 +35,9 @@ class App extends Component{
         <span className="grid-item phone-heading">Phone</span>
       </div>
       {
+        //works like for each
 subsriberArray.map(sub=>{
-return <div className="grid-container">
+return <div key={sub.id}className="grid-container">
   <span className="grid-item">{sub.name}</span>
   <span className="grid-item">{sub.phone}</span>
   </div>
