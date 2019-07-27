@@ -2,7 +2,13 @@ import React,{Component} from 'react';
 import Header from './Header';  /*  Header refers to constant within ./Header.js */
 import './App.css';
 class App extends Component{
+constructor(){
+super();
+this.state={
+  subscribersListToShow:[]
+}
 
+}
 
   deleteHandler(message){
 alert('within event handling function '+message);
@@ -27,7 +33,7 @@ alert('within event handling function '+message);
           name:'Varun',
         phone:'464989844'
       }
-    ]
+    ] 
 
   return (
     <div>

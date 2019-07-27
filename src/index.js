@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import AddSubscriber from './AddSubsriber';
 
 //note above imported files are for all the components within src
-ReactDOM.render(<AddSubscriber />, document.getElementById('root'));  //App.js/App class is loaded within root element/DOM
+ReactDOM.render(<App />, document.getElementById('root'));  //App.js/App class is loaded within root element/DOM
 
 
 // If you want your app to work offline and load faster, you can change
