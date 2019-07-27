@@ -1,9 +1,13 @@
 import React,{Component} from 'react';
 import Header from './Header';  /*  Header refers to constant within ./Header.js */
 import './App.css';
-
-
 class App extends Component{
+
+
+  deleteHandler(message){
+alert('within event handling function '+message);
+
+  }
 
   render(){
     let subsriberArray=[
@@ -24,6 +28,7 @@ class App extends Component{
         phone:'464989844'
       }
     ]
+
   return (
     <div>
     <Header heading="Phone Directory" />
@@ -37,9 +42,11 @@ class App extends Component{
       {
         //works like for each
 subsriberArray.map(sub=>{
-return <div key={sub.id}className="grid-container">
+return <div key={sub.id}className="grid-container">                                           
   <span className="grid-item">{sub.name}</span>
   <span className="grid-item">{sub.phone}</span>
+  <span className="grid-item"> <button className="custom-btn del-btn" onClick={this.deleteHandler.bind(this,"Delete Clicked")}>Delete</button>
+</span>
   </div>
 
 })

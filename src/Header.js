@@ -10,21 +10,21 @@ import './Header.css' ;
     color: '#fff',
     textTransform: 'uppercase'
   };  */
-/*  const Header=function(props){                                  //constant name should be same as that of component.js
+/*  const Header=function(properties){                                  //constant name should be same as that of component.js
 return(  
 <div className='header'>
-{props.heading}
+{properties.heading}
  </div>
  )
-}  
-*/
+}   */
+
 //now reference this functional component in App.js
 //below is the class component
-  class Header extends Component{
+   class Header extends Component{
 
     render(){
 
         return(
             <div className="header">{this.props.heading}</div>  )
-     } } 
+     } }  
 export default Header;
