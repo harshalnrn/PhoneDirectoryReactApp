@@ -12,19 +12,37 @@ class AddSubsriber extends Component {
             id:0,
             name:'',
             phone:''
+         
 
         }
-
+        console.log("inside constrcuter");
     }
 
+    //what kind of block is the below one
     inputChangedHandler=(e)=>{
+        //change the state of state object
         const state=this.state;
         state[e.target.name]=e.target.value;
         this.setState(state);
         console.log(state);
     }
+
+    onFormSubmitted=(e)=>{
+        //prevent default action
+e.preventDefault();
+this.props.addSubscriberHandler(this.state);                   //passing function as property
+this.setState({    id:0,
+    name:'',
+    phone:''})
+
+    }
+
+
+    componentDidMount(){
+        console.log("component mounted");
+    }
     render(){
-        
+        console.log("inside render method");
 
         return (
             <div>
@@ -32,7 +50,7 @@ class AddSubsriber extends Component {
            <div className='component-body-container'>
                <button className='custom-btn'>Back</button>
            </div>
-           <form className="subscriber-form">
+           <form className="subscriber-form" onSubmit={this.onFormSubmitted.bind(this)}>
 <label htmlFor="name" className="label-control">Name: </label><br/>
 <input id="name" type="text" className="input-control" name="name" onChange={this.inputChangedHandler}></input><br/><br/>
 
@@ -48,6 +66,7 @@ class AddSubsriber extends Component {
 <button className="custom-btn add-btn"  type="submit">Add</button>
            </form>
             </div>
+
 
         )
     }

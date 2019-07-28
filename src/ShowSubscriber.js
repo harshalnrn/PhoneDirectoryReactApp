@@ -1,8 +1,10 @@
 import React,{Component} from 'react';
 import Header from './Header';  /*  Header refers to constant within ./Header.js */
-import './App.css';
-class App extends Component{
-constructor(){
+import './ShowSubscriber.css';
+class ShowSubscriber extends Component{
+  
+/* constructor(){
+console.log("inside constructer");
 super();
 this.state={
   subscribersListToShow:[]
@@ -10,13 +12,35 @@ this.state={
 
 }
 
+componentDidMount(){
+  console.log("inside componenetDidMount method")
+  let subscriber={
+    id:1,
+    name:'Harshal',
+    phone:'08080318301'
+  };
+  let subscriber1={
+id:2,
+name:'Padma',
+phone: '1410414801'
+  };
+  let subscriberList=this.state.subscribersListToShow;
+  subscriberList.push(subscriber);
+  subscriberList.push(subscriber1);
+  //note constrcuter is the only place where state variables can be initialised using this.state. After evewhere , setState method has to be mandatorily used
+  this.setState({
+    subscribersListToShow:subscriberList
+  });
+}
+*/
   deleteHandler(message){
 alert('within event handling function '+message);
 
-  }
+  } 
 
   render(){
-    let subsriberArray=[
+    console.log("inside render");
+   /*  let subsriberArray=[
 
       {
         id:1,
@@ -33,7 +57,7 @@ alert('within event handling function '+message);
           name:'Varun',
         phone:'464989844'
       }
-    ] 
+    ] */ 
 
   return (
     <div>
@@ -47,7 +71,8 @@ alert('within event handling function '+message);
       </div>
       {
         //works like for each
-subsriberArray.map(sub=>{
+      //  this.state.subscribersListToShow.map(sub=>{
+        this.props.subscriberList.map(sub=>{
 return <div key={sub.id}className="grid-container">                                           
   <span className="grid-item">{sub.name}</span>
   <span className="grid-item">{sub.phone}</span>
@@ -63,4 +88,4 @@ return <div key={sub.id}className="grid-container">
 }
 }
 
-export default App;
+export default ShowSubscriber;
