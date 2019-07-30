@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import './common/common.css';
-import ShowSubscriber from './ShowSubscriber';
 import * as serviceWorker from './serviceWorker';
-import AddSubscriber from './AddSubsriber';
 import PhoneDirectory from './PhoneDirectory';
 
 //note above imported files are for all the components within src

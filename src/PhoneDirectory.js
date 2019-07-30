@@ -4,6 +4,8 @@
 import React, {Component} from 'react';
 import AddSubsriber from './AddSubsriber';
 import ShowSubscriber from'./ShowSubscriber';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
 class PhoneDirectory extends Component {
 
     constructor(){
@@ -28,7 +30,7 @@ phone:'08080808080'
         }
     }
 
-   /*  //addsubscriber is method name, and newSubscriber is parameter being passed to method
+     //addsubscriber is method name, and newSubscriber is parameter being passed to method
     addSubscriberHandler=(newSubscriber) =>{
 let list=this.state.subScriberList;
 
@@ -40,12 +42,22 @@ else{
 }
 list.push(newSubscriber);
 this.setState({subScriberList:list});
-console.log(this.state.subScriberList);
 
-    } */
+
+    } 
+    
 render(){
     // return(<AddSubsriber  addSubscriberHandler= {this.addSubscriberHandler}/>);
-    return (<ShowSubscriber subscriberList={this.state.subScriberList}/>)
+   // return (<ShowSubscriber subscriberList={this.state.subScriberList}/>)
+
+     return(
+         <Router>
+            <div className="main-container">
+            <Route exact path="/" render={(props)=><ShowSubscriber {...props} subscriberList={this.state.subScriberList}/>}/>
+            <Route exact path="/add" render={({history},props)=><AddSubsriber history={history} {...props} addSubscriberHandler={this.addSubscriberHandler}/>}/>
+            </div>
+         </Router>
+     )
 }
 
 

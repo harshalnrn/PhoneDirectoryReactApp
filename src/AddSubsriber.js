@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Header from './Header';
 import './AddSubsriber.css';
+import { Link } from 'react-router-dom';
 class AddSubsriber extends Component {
 
     constructor(){
@@ -18,39 +19,44 @@ class AddSubsriber extends Component {
         console.log("inside constrcuter");
     }
 
-    //what kind of block is the below one
+    //note the different representation of a function, using arrow expressions
+    
     inputChangedHandler=(e)=>{
         //change the state of state object
         const state=this.state;
         state[e.target.name]=e.target.value;
+        state[e.target.phone]=e.target.value;
         this.setState(state);
         console.log(state);
     }
 
-    onFormSubmitted=(e)=>{
+    onFormSubmitted=(f)=>{
         //prevent default action
-e.preventDefault();
-this.props.addSubscriberHandler(this.state);                   //passing function as property
+f.preventDefault();
+console.log(f.target.name.value);
+this.props.addSubscriberHandler(this.state);                 //accessing properties objects which has the function
+//re-initializing the state. But why is this required ?
 this.setState({    id:0,
     name:'',
     phone:''})
-
+    this.props.history.push("/");
     }
+ 
 
 
     componentDidMount(){
         console.log("component mounted");
+        //here if state object mutated, render() shall get recalled
     }
     render(){
         console.log("inside render method");
 
         return (
-            <div>
+            <div className="component-container">
            <Header heading="Add Subsriber" /> {/* passing properties to referred child component  */}
-           <div className='component-body-container'>
-               <button className='custom-btn'>Back</button>
-           </div>
-           <form className="subscriber-form" onSubmit={this.onFormSubmitted.bind(this)}>
+           <div className="component-body-container">
+               <Link to="/"> <button className='custom-btn'>Back</button> </Link> 
+           <form className="subscriber-form" onSubmit={this.onFormSubmitted.bind(this)}>      {/* // how is form DOM binded using this ? */}
 <label htmlFor="name" className="label-control">Name: </label><br/>
 <input id="name" type="text" className="input-control" name="name" onChange={this.inputChangedHandler}></input><br/><br/>
 
@@ -65,6 +71,7 @@ this.setState({    id:0,
 
 <button className="custom-btn add-btn"  type="submit">Add</button>
            </form>
+           </div>
             </div>
 
 
