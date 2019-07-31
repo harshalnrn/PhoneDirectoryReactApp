@@ -34,8 +34,9 @@ phone: '1410414801'
   });
 }
 */
-  deleteHandler(message){
-alert('within event handling function '+message);
+  deleteHandler(id){
+//now use the function that has been passed through the props, from PhoneDirectory
+this.props.deleteSubscriberHandler(id);
 
   } 
 
@@ -77,7 +78,7 @@ alert('within event handling function '+message);
 return <div key={sub.id}className="grid-container">                                           
   <span className="grid-item">{sub.name}</span>
   <span className="grid-item">{sub.phone}</span>
-  <span className="grid-item"> <button className="custom-btn del-btn" onClick={this.deleteHandler.bind(this,"Delete Clicked")}>Delete</button>
+  <span className="grid-item"> <button className="custom-btn del-btn" onClick={this.deleteHandler.bind(this,sub.id)}>Delete</button>
 </span>
   </div>
 
